@@ -5,18 +5,20 @@ import axios from 'axios';
 class App extends Component {
 
   state = {
-  	subjects : []
+  	subjects : [],
+  	posts : [] 
   }
 
 
   componentDidMount(){
 
-  	const url = 'http://tsu.creativestudio.ge/subjects';
+  	// const url = 'http://tsu.creativestudio.ge/subjects';
+  	// this.getSubjects(url);
+  
+  
+  	const url = 'https://jsonplaceholder.typicode.com/posts';
 
-  	this.getSubjects(url);
-
-  	console.log('componentDidMount', this.state.subjects);
-  	 
+  	this.getPosts(url);
   }
 
   	getSubjects = async url => {
@@ -29,6 +31,16 @@ class App extends Component {
 
 	};
 
+	getPosts = async url => {
+
+		axios.get(url).then( res => {
+	    	this.setState({
+	    		posts:res.data
+	    	});
+	    });
+
+	}
+
 
 
 
@@ -39,22 +51,22 @@ class App extends Component {
        		<table border="1">
 				  <thead>
 					  <tr>
-					    <th>ID</th>
+					    <th>user ID</th>
 					    <th>title</th>
-					    <th>faculty ID</th>
+					    <th>body</th>
 					   
 					  </tr>
 				  </thead>
 				  <tbody>
 				  {
 				  	
-				  	this.state.subjects.map( item => {
+				  	this.state.posts.map( item => {
 				  		
 				  		return (
 				  			<tr key =  { item.id } >
-					  			<td> { item.id } </td>
+					  			<td> { item.userId } </td>
 					  			<td> { item.title } </td>
-					  			<td> { item.faculty_id } </td>
+					  			<td> { item.body } </td>
 				  			</tr>
 				  		)
 
