@@ -13,9 +13,7 @@ class App extends Component {
 
   	const url = 'http://tsu.creativestudio.ge/subjects';
 
-  	setInterval(()=> {
-  		this.getSubjects(url);
-  	}, 100)
+  	this.getSubjects(url);
 
   	console.log('componentDidMount', this.state.subjects);
   	 
