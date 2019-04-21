@@ -100,11 +100,14 @@ class Auth extends Component {
 
         axios.post(url , data , config)
             .then(res => {
-                console.log()
+                localStorage.setItem('accessToken',res.data.access_token);
+                this.props.checkAuth(true);
             })
             .catch( error => {
-                alert('Something went wrong, try again !!! ') ;
+                this.props.checkAuth(false);
             })
+
+           
     }
 
     render() { 
@@ -131,7 +134,6 @@ class Auth extends Component {
                         { input.config.error.message }
                     </span> : null
                 }
-                
             </div>
         })
 
