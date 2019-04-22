@@ -26,11 +26,11 @@ const LeftSide = props => {
                     <li className="nav-item">
                         <a className="nav-link js-scroll-trigger" href="#Exams">გამოცდები</a>
                     </li>
+                    <li>
+                        <button  onClick={ props.logout }>Logout</button>
+                    </li>
                 </ul>
             </div>
-
-            <button onClick={ props.logout }>Logout</button>
-            
       </nav>
     );
 }
