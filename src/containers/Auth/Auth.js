@@ -13,7 +13,7 @@ class Auth extends Component {
                 value : '',
                 error : {
                     valid : true,
-                    message: 'Email required',
+                    message: 'Invalid Email Value',
                 },
                 validation:{
                     required:true,

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LeftSide = () => {
+const LeftSide = props => {
     return ( 
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
 
@@ -28,6 +28,8 @@ const LeftSide = () => {
                     </li>
                 </ul>
             </div>
+
+            <button onClick={ props.logout }>Logout</button>
             
       </nav>
     );
